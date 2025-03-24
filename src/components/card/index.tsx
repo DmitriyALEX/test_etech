@@ -81,7 +81,9 @@ const Card = () => {
         <section className={styles.card_container}>
             <TextInput id={'Search by title'} onChange={handleSearch} />
 
-            {renderedData?.questionnaire.length === 0 && <p style={{ color: 'red' }}>No items found</p>}
+            {renderedData && renderedData.questionnaire && renderedData.questionnaire.length === 0 && (
+                <p style={{ color: 'red' }}>No items found</p>
+            )}
 
             {renderedData && renderedData.questionnaire && renderedData.questions && (
                 <>

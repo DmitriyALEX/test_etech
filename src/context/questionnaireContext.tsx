@@ -8,6 +8,9 @@ import { urls } from '../config/urls'
 interface IFetchedDataContext {
     fetchedData: IFetchedData | null
     setFetchedData: (data: IFetchedData | null) => void
+
+    reloadFetchData: boolean
+    setReloadFetchData: (value: boolean) => void
 }
 
 const QuestionnaireContext = createContext<IFetchedDataContext | undefined>(undefined)
@@ -23,15 +26,26 @@ export function useQuestionnaire() {
 export const QuestionnaireProvider = ({ children }: { children: React.ReactNode }) => {
     const [fetchedData, setFetchedData] = useState<IFetchedData | null>(null)
 
+    const [reloadFetchData, setReloadFetchData] = useState<boolean>(false)
+
     useEffect(() => {
         axios.get(`${urls.getAllQuiz}`).then(response => setFetchedData(response.data))
     }, [])
+
+    useEffect(() => {
+        if (reloadFetchData) {
+            axios.get(`${urls.getAllQuiz}`).then(response => setFetchedData(response.data))
+            setReloadFetchData(false)
+        }
+    }, [reloadFetchData])
 
     return (
         <QuestionnaireContext.Provider
             value={{
                 fetchedData,
                 setFetchedData,
+                reloadFetchData,
+                setReloadFetchData,
             }}
         >
             {children}

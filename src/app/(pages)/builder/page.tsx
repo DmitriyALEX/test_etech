@@ -15,7 +15,7 @@ const BuilderPage = () => {
     const selectId = useId()
     const router = useRouter()
 
-    const { setFetchedData } = useQuestionnaire()
+    const { setReloadFetchData, setFetchedData } = useQuestionnaire()
 
     const [title, setTitle] = useState<string>('')
     const [description, setDescription] = useState<string>('')
@@ -32,20 +32,20 @@ const BuilderPage = () => {
             questions,
         }
 
-        axios
-            .post(`${urls.builderQuestion}`, {
+        try {
+            const response = await axios.post(`${urls.builderQuestion}`, {
                 questionnaire: [newQuestionnaire],
             })
-            .then(function(response) {
-                //set to context
-                setFetchedData(response.data.data)
-                if (response.status >= 200 && response.status < 300) {
-                    router.push('/')
-                }
-            })
-            .catch(function(error) {
-                console.log(error)
-            })
+
+            //set to context
+            setFetchedData(response.data.data)
+            if (response.status >= 200 && response.status < 300) {
+                router.push('/')
+                setReloadFetchData(true)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
