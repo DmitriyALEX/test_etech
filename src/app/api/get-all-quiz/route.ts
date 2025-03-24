@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/helpers/prismadb'
-export async function GET(req: NextRequest, response: NextResponse) {
+export async function GET(req: NextRequest) {
     try {
         const getQuestionnaire = await prisma.questionnaire.findMany()
         const getQuestions = await prisma.questions.findMany()
