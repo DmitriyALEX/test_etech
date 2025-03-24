@@ -1,2 +1,4 @@
-# test_etech
-Next.js 15, Typescript, MongoDB
+# deployed: 
+[test-etech.vercel.app](https://test-etech.vercel.app/)
+
+
