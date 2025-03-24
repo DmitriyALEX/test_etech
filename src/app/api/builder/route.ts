@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
             )
             createdQuestionnaires.push({ questionnaire: createQuestionnaire, questions: createdQuestions })
         }
-        return NextResponse.json({ data: createdQuestionnaires })
+        return NextResponse.json({ data: createdQuestionnaires }, { status: 201 })
     } catch (e) {
         console.error(e)
         return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 })

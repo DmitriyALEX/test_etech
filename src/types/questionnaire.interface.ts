@@ -6,6 +6,7 @@ export interface IQuestionnaire {
 }
 
 export interface IQuestion {
+    questionnaireId?: string
     questionTitle: string
     questionType: string
     questionAnswers: string[]
