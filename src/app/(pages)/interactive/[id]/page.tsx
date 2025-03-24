@@ -47,7 +47,6 @@ const InteractivePage = ({ params }: { params: Promise<{ id: string }> }) => {
 
     const handleStop = () => {
         setRunningStopWatch(false)
-        console.log(time)
         setIsOpenModalWindow(true)
 
         setMinute(minute)
