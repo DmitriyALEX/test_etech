@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/helpers/prismadb'
 
 export async function DELETE(req: NextRequest) {
-    const { id } = await req.json()
     try {
+        const { id } = await req.json()
         const questionnaireId = await prisma.questionnaire.findUnique({
             where: { id: id },
         })
