@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Questionnaire {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  title String 
+  description String
+  question Questions[]
+  completedAnswers completedAnswers[]
+}
+
+model Questions {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  questionnaireId String @db.ObjectId
+  questionTitle String
+  questionType String
+  answer String[]
+  question      Questionnaire @relation(fields: [questionnaireId], references: [id], onDelete: Cascade)
+}
+
+model completedAnswers {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  questionnaireId String @db.ObjectId
+  completedMinutes Int
+  completedSeconds Int
+  completedAnswer  Json[]
+  questionnaire      Questionnaire @relation(fields: [questionnaireId], references: [id], onDelete: Cascade)
+
+}

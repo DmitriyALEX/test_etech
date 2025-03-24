@@ -1,0 +1,21 @@
+.modalwindow_container {
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgb(154, 151, 151);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalwindow {
+    width: 500px;
+    height: 500px;
+    background: white;
+
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+}

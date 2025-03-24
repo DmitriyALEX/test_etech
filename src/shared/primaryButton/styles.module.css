@@ -1,0 +1,16 @@
+.primary_button_container {
+    margin: 8px;
+}
+
+.primary_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(210, 225, 235);
+    border: 1px solid rgb(218, 215, 215);
+    border-radius: 4px;
+    padding: 10px;
+    &:hover {
+        cursor: pointer;
+    }
+}

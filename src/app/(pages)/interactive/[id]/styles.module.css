@@ -1,0 +1,26 @@
+.interactive_page_container {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.questions_container {
+    margin-top: 32px;
+}
+
+.questions_container {
+    margin: 20px 0 20px 0;
+}
+
+.answers_container_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.answers_container {
+    display: flex;
+    gap: 8px;
+    /* flex-direction: column; */
+}

@@ -1,0 +1,12 @@
+.input_container {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+}
+
+.input {
+    height: 30px;
+    border: 1px solid rgb(174, 168, 168);
+    border-radius: 4px;
+    outline: none;
+}

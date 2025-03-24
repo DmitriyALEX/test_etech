@@ -1,0 +1,37 @@
+.builder_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.builder_title {
+    font-size: 2rem;
+}
+
+.form_container {
+    width: 300px;
+}
+
+.question_select_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0 32px 0 16px; */
+}
+
+.question_title {
+    display: flex;
+    align-items: center;
+}
+
+.select_items {
+    height: 30px;
+}
+
+.select_type_container {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+}
